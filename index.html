@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#17191d">
+<title>Mission Ares — Missions 1 and 2</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="opening-video.css">
+</head>
+<body>
+<div class="opening" id="opening" aria-label="Mission Ares opening">
+  <audio id="opening-music" src="assets/opening-music.mp3" preload="auto" loop></audio>
+  <audio id="normal-music" src="assets/normal-music.mp3" preload="auto" loop></audio>
+  <audio id="tense-music" src="assets/tense-music.mp3" preload="auto" loop></audio>
+  <section class="opening-video-screen" id="opening-video-screen" aria-label="Mission Ares opening video">
+    <video class="opening-video" id="opening-video" autoplay muted playsinline preload="auto" poster="assets/mission-ares-title.png" aria-label="Ares rocket launch and journey to Mars">
+      <source src="assets/ares-opening.mp4" type="video/mp4">
+    </video>
+    <button class="skip-intro" id="skip-intro" type="button">SKIP VIDEO →</button>
+  </section>
+  <section class="title-screen" id="title-screen" aria-label="Mission Ares title screen" hidden>
+    <div class="opening-art-frame">
+      <img class="opening-title-image" src="assets/mission-ares-title.png" alt="Mission Ares title screen showing the Mars base and a Press to Start prompt">
+      <button class="start-image-button" id="start-game" type="button" aria-label="Press to start Mission Ares"></button>
+    </div>
+  </section>
+  <button class="opening-sound" id="opening-sound" type="button" aria-pressed="false">TURN SOUND ON ♪</button>
+</div>
+<div class="app-shell">
+  <header class="topbar"><a class="brand" href="#" aria-label="Mission Ares home"><span class="brand-mark">A</span><span>MISSION <b>ARES</b></span></a><div class="top-meta"><span class="live-dot"></span> BASE ONLINE <span class="divider">•</span> MISSION <b id="mission-count">01</b> <span class="divider">·</span> SOL <b id="sol-count">01</b></div><button class="icon-btn" id="sound-toggle" title="Toggle music" aria-label="Toggle music" aria-pressed="false">♪</button></header>
+  <main>
+    <section class="game-layout">
+      <div class="scene-column">
+        <div class="scene-head"><div><span class="eyebrow" id="mission-kicker">MISSION 01 · ARRIVAL</span><h1 id="scene-title">A New Home on Mars</h1></div><span class="status-pill" id="scene-tag">ARES BASE · 2037</span></div>
+        <div class="mars-scene" id="mars-scene" aria-label="Concept art of Ares Base on Mars">
+          <img class="base-concept-art" src="assets/ares-base-concept.png" alt="Concept art of Ares Base, with connected modules on the Martian landscape"><span class="art-watermark" aria-label="AI-generated concept art">AI-GENERATED CONCEPT ART</span>
+          <div class="scene-sky"><span class="planet"></span><span class="star s1"></span><span class="star s2"></span><span class="star s3"></span></div>
+          <div class="mountain m-back"></div><div class="mountain m-front"></div>
+          <div class="base-art">
+            <div class="module module-hub"><div class="window-grid"></div><span class="module-label">HUB</span></div>
+            <div class="connector c-left"></div><div class="connector c-right"></div><div class="connector c-low"></div>
+            <div class="module module-grow"><div class="greenhouse"><i></i><i></i><i></i></div><span class="module-label">GROWING</span></div>
+            <div class="module module-engine"><span class="solar-array"></span><span class="module-label">ENGINEERING</span></div>
+            <div class="module module-comm"><span class="dish">◉</span><span class="module-label">COMMS</span></div>
+            <div class="module module-living"><span class="module-label">COMMONS</span><span class="light-window"></span></div>
+            <div class="rover"><span class="rover-body"></span><i></i><i></i><i></i><i></i></div>
+          </div>
+          <span class="scene-mood" id="scene-mood" hidden></span><div class="storm-overlay" id="storm-overlay"></div>
+          <div class="scene-caption"><span class="caption-icon">⌖</span><span id="scene-caption">ELYSIUM PLANITIA · MARS</span><span class="caption-coords">4.5°N 135.9°E</span></div>
+        </div>
+        <div class="crew-line"><div class="crew-avatar" id="crew-avatar">🦁</div><div class="crew-copy"><b id="crew-name">Commander Leo</b><span id="crew-role">Mission commander</span></div><span class="crew-status" id="crew-status">ARES-1 CREW</span></div>
+      </div>
+      <aside class="mission-panel">
+        <div class="panel-top"><span class="eyebrow" id="panel-eyebrow">MISSION LOG</span><span class="page-count" id="page-count">01 / 12</span></div>
+        <div class="progress-row"><div class="progress-label"><span>JOURNEY PROGRESS</span><span id="progress-count">0 / 12 steps</span></div><div class="progress-track" id="mission-progress" role="progressbar" aria-label="Mission progress" aria-valuemin="0" aria-valuemax="12" aria-valuenow="0" aria-valuetext="0 of 12 steps completed"><span id="mission-progress-fill"></span></div></div>
+        <div class="panel-content" id="panel-content"></div>
+        <div class="panel-footer"><span class="key-hint"><span class="key">A</span><span class="key">B</span> to choose</span><span class="auto-save">● LOCAL PROGRESS</span></div>
+      </aside>
+    </section>
+    <section class="status-bar" aria-label="Base meters">
+      <div class="status-heading"><div><span class="eyebrow">BASE SYSTEMS</span><span class="small-label">Crew and system status</span></div><button class="reset-btn" id="reset-game">RESTART MISSION ↺</button></div>
+      <div class="meters" id="meters"></div>
+    </section>
+  </main>
+  <footer class="footer"><span>MISSION ARES <span class="footer-sep">/</span> MARS EXPLORATION</span><span>INTERACTIVE PROTOTYPE <span class="footer-sep">·</span> SCIENCE SOURCES INCLUDED</span></footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="game.js"></script>
+</body></html>
